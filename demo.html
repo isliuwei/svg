@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p>svg 可缩放矢量图形（Scalable Vector Graphics） 基于XML描述的矢量文件（基于数学的描述）</p>
+	<p>svg 简单示例</p>
+	<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+	    <!--Face-->
+	    <circle cx="100" cy="100" r="90" fill="#39F" />
+	    <!--Eyes-->
+	    <circle cx="70" cy="80" r="20" fill="white" />
+	    <circle cx="130" cy="80" r="20" fill="white" />
+	    <circle cx="65" cy="75" r="10" fill="black" />
+	    <circle cx="125" cy="75" r="10" fill="black"/>
+	    <!--Smile-->
+	    <path d="M 50 140 A 60 60 0 0 0 150 140" stroke="white" stroke-width="3" fill="none" />
+	</svg>
+
+	<p>svg 使用方法</p>
+	<dl>
+		<dt>①浏览器直接打开</dt>
+			<dd>直接在浏览器打开 .svg文件，就可以显示svg图片</dd>
+		<dt>②在HTML中使用&lt;img&gt;标签引用</dt>
+			<dd>img标签引用svg文件  demo</dd>
+			<dd>
+				<span>40px × 40px</span><img src="img/simple.svg" width="40px" height="40px" alt="svg图片" title="svg图片">
+				<span>80px × 80px</span><img src="img/simple.svg" width="80px" height="80px" alt="svg图片" title="svg图片">
+				<span>120px × 120px</span><img src="img/simple.svg" width="120px" height="120px" alt="svg图片" title="svg图片">
+			</dd>
+		<dt>③直接在HTML中使用svg标签</dt>
+			<dd><img src="img/svg-tag.png"  width="30%" alt=""></dd>
+			<dd>
+				<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+				    <!--Face-->
+				    <circle cx="100" cy="100" r="90" fill="#39F" />
+				    <!--Eyes-->
+				    <circle cx="70" cy="80" r="20" fill="white" />
+				    <circle cx="130" cy="80" r="20" fill="white" />
+				    <circle cx="65" cy="75" r="10" fill="black" />
+				    <circle cx="125" cy="75" r="10" fill="black"/>
+				    <!--Smile-->
+				    <path d="M 50 140 A 60 60 0 0 0 150 140" stroke="white" stroke-width="3" fill="none" />
+				</svg>
+			</dd>
+		<dt>④作为css背景</dt>
+			<dd style="color:#000; width: 120px; height: 120px; background: url(../img/simple.svg) no-repeat -40px -50px">svg 作为css背景 demo</dd>
+	</dl>
+
+
+	<p>svg 基本图形和属性</p>
+	<p>基本图形  矩形&lt;rect&gt;、圆&lt;circle&gt;、椭圆&lt;ellipse&gt;、线段&lt;line&gt;、折线&lt;polyline&gt;、多边形&lt;polygon&gt;</p>
+	<p>基本属性  fill、stroke、stroke-width、transform</p>
+
+	<p>svg 基本图形demo</p>
+	<p>矩形 &lt;rect&gt;</p>
+	<p>基本属性 x,y,width,height,rx,ry</p>
+	<p>width 和 height 属性可定义矩形的高度和宽度</p>
+	<p>x 属性定义矩形的左侧位置（例如，x="0" 定义矩形到浏览器窗口左侧的距离是 0px）</p>
+	<p>y 属性定义矩形的顶端位置（例如，y="0" 定义矩形到浏览器窗口顶端的距离是 0px）</p>
+	<p>rx 和 ry 属性可使矩形产生圆角</p>
+	<p>矩形 &lt;rect&gt; demo</p>
+	<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="250px">
+		<rect
+			width="200"
+			height="100"
+			x="10"
+			y="10"
+			stroke="red"
+			stroke-width="2"
+			fill="#0f0"
+		>
+		</rect>
+		
+		<rect
+			width="200"
+			height="100"
+			x="240"
+			y="10"
+			stroke="#00f"
+			stroke-width="1"
+			transform="rotate(10)"
+			fill="#0f0"
+			rx="10"
+			ry="10"
+		>
+		</rect>
+	</svg>
+
+	<p>圆 &lt;circle&gt;</p>
+	<p>cx和cy属性定义圆点的x和y坐标。如果省略cx和cy，圆的中心会被设置为(0, 0)。r属性定义圆的半径</p>
+	<svg xmlns="http://www.w3.org/2000/svg">
+		<circle
+			cx="100"
+			cy="100"
+			r="50"
+			style="stroke:#fff;fill:red;opacity:0.5"
+		>
+
+		</circle>
+
+		<circle
+			cx="0"
+			cy="0"
+			r="30"
+			stroke="#000"
+			stroke-width="5"
+			fill="#f0f"
+
+		>
+
+		</circle>
+	</svg>
+
+	<p>椭圆 &lt;ellipse&gt;</p>
+	<p>cx属性定义的椭圆中心的x坐标</p>
+	<p>cy属性定义的椭圆中心的y坐标</p>
+	<p>rx属性定义的水平半径</p>
+	<p>ry属性定义的垂直半径</p>
+	<svg xmlns="http://www.w3.org/2000/svg" height="300px">
+		<ellipse
+			cx="120"
+			cy="100"
+			rx="100"
+			ry="70"
+			style="stroke:#f00;stroke-width:10;fill:#ccc;"
+		></ellipse>
+	</svg>
+
+	<p>直线 &lt;line&gt;</p>
+	<p>x1 属性在 x 轴定义线条的开始</p>
+	<p>y1 属性在 y 轴定义线条的开始</p>
+	<p>x2 属性在 x 轴定义线条的结束</p>
+	<p>y2 属性在 y 轴定义线条的结束</p>
+
+	<svg xmlns="http://www.w3.org/2000/svg" >
+		<line
+			x1="0"
+			y1="0"
+			x2="200"
+			y2="200"
+			style="stroke:#000;stroke-width:2;"
+		></line>
+	</svg>
+
+	<p>折线 &lt;polyline&gt;</p>
+	<svg xmlns="http://www.w3.org/2000/svg" >
+		<polyline
+				points="0 0
+						0 20
+						20 20
+						20 40"
+				style="stroke:#f00;stroke-width:2;fill:none;"
+		></polyline
+	</svg>
+
+	<p>多边形 &lt;polygon&gt;</p>
+	<svg xmlns="http://www.w3.org/2000/svg" >
+		<polygon
+				points="0 0
+						0 20
+						20 20"
+				style="stroke:#f00;stroke-width:2;fill:none;"
+		></polygon
+	</svg>
+
+
+
+
+
+	
+	
+</body>
+</html>
